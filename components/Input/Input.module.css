@@ -1,0 +1,20 @@
+.input {
+  width: 100%;
+  height: var(--token-56);
+  border: 1px var(--grey-30) solid;
+  border-radius: var(--token-12);
+  padding: 0 var(--token-16);
+  font-size: var(--font-size-medium);
+  margin-bottom: var(--token-08);
+  margin-top: var(--token-08);
+  box-shadow: var(--box-shadow);
+}
+
+.input::placeholder {
+  color: var(--grey-50);
+}
+
+.label {
+  font-size: 15px;
+  margin-bottom: var(--token-24);
+}

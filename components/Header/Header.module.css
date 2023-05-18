@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--token-16);
+}
+
+.container h1 {
+  margin-bottom: 0;
+}
+
+.links {
+  margin-left: var(--token-12);
+  display: flex;
+  gap: var(--token-12);
+}
+
+.links a {
+  text-decoration: none;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px var(--grey-30) solid;
+  font-size: var(--font-size-tiny);
+  font-weight: 500;
+  padding: 0 var(--token-08);
+  border-radius: var(--token-24);
+  gap: var(--token-04);
+  transition: background-color 0.25s;
+  box-shadow: var(--box-shadow);
+}
+
+.link:hover {
+  background-color: var(--grey-10);
+}

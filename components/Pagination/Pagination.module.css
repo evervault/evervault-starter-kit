@@ -1,0 +1,22 @@
+.navigation {
+  height: var(--token-56);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress {
+  display: flex;
+  gap: var(--token-12);
+}
+
+.progressItem {
+  width: var(--token-08);
+  height: var(--token-08);
+  background: var(--grey-40);
+  border-radius: var(--token-04);
+}
+
+.progressItem[data-active='true'] {
+  background: var(--primary);
+}

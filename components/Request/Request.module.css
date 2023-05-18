@@ -1,0 +1,46 @@
+.container {
+  background: var(--grey-90);
+  border: 1px var(--grey-30) solid;
+  margin-bottom: var(--token-24);
+  border-radius: var(--token-20);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  font-size: var(--font-size-tiny);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px var(--grey-80) solid;
+  padding: var(--token-12);
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23babcd2' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.method {
+  border-radius: var(--token-24);
+  border: 1px var(--grey-70) solid;
+  margin-right: var(--token-12);
+  padding: var(--token-04) var(--token-08);
+  line-height: 1;
+  color: var(--grey-40);
+  background: var(--grey-90);
+  font-weight: 500;
+}
+
+.url {
+  line-height: 1;
+  color: var(--grey-00);
+}
+
+.payload {
+  padding: var(--token-24);
+  line-height: 1.4;
+}
+
+.payload pre {
+  position: relative;
+  font-size: var(--font-size-tiny);
+  color: var(--grey-20);
+  line-height: 1.4;
+  color: var(--grey-00);
+}
