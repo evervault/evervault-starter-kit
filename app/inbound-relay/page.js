@@ -1,13 +1,15 @@
 'use client';
+import axios from 'axios';
 import { useState } from 'react';
 
 import Button from '@/components/Button/Button';
 import Header from '@/components/Header/Header';
 import List from '@/components/List/List';
 import Pagination from '@/components/Pagination/Pagination';
+import { relayDashbordUrl, vercelLogsUrl } from './config';
 import Request from '@/components/Request/Request';
+import Snippet from '@/components/Snippet/Snippet';
 import styles from './page.module.css';
-import axios from 'axios';
 
 export default function Inputs() {
   const [coords, setCoords] = useState({ lat: undefined, long: undefined });
@@ -22,13 +24,13 @@ export default function Inputs() {
   async function sendRequest() {
     try {
       await axios.post(
-        'https://evervault-starter-kit-vercel-app.relay.evervault.com/inbound-relay/api',
+        `${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api`,
         {
           lat: coords.lat,
           long: coords.long,
         }
       );
-      // setActiveIndex(2);
+      setActiveIndex(2);
     } catch (error) {
       console.log(error);
     }
@@ -98,7 +100,10 @@ export default function Inputs() {
             send it to the server via Inbound Relay. This template includes a
             server-side API endpoint called <code>/inbound-relay/api</code> (a
             Next.js{' '}
-            <a href='https://nextjs.org/docs/app/building-your-application/routing/router-handlers'>
+            <a
+              href='https://nextjs.org/docs/app/building-your-application/routing/router-handlers'
+              target='_blank'
+            >
               Route Handler
             </a>
             ). When we send the following request to the Inbound Relay we
@@ -107,15 +112,18 @@ export default function Inputs() {
           </p>
           <Request
             method='POST'
-            url='api-test-com-app_8090c2ec1322.relay.evervault.io/inbound-relay/api'
+            url={`${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api`}
           >
             {coords}
           </Request>
           <p>
             Since <code>lat</code> and <code>long</code> are configured as{' '}
             <em>fields to encrypt</em>{' '}
-            <a href='#'>in the Evervault Dashboard</a>, those fields will be
-            encrypted by Inbound Relay before being forwarded.
+            <a href={`${relayDashbordUrl}/encrypted-fields`} target='_blank'>
+              in the Evervault Dashboard
+            </a>
+            , those fields will be encrypted by Inbound Relay before being
+            forwarded.
           </p>
         </Pagination.Item>
         <Pagination.Item>
@@ -123,14 +131,23 @@ export default function Inputs() {
             The request was successfully sent to your server via Inbound Relay!
           </p>
           <p>
-            If you <a href='#'>check your Vercel Logs</a>, you'll notice that
-            the fields <code>latitude</code> and <code>longitude</code> are
-            encrypted.
+            If you{' '}
+            <a href={vercelLogsUrl} target='_blank'>
+              check your Vercel Logs
+            </a>
+            , you'll notice that the fields <code>lat</code> and{' '}
+            <code>long</code> are encrypted.
           </p>
           <p>
-            Try changing the fields to encrypt <a href='#'>in the Dashboard</a>{' '}
-            and resending the request using the cURL snipped below.
+            Try changing the fields to encrypt{' '}
+            <a href={`${relayDashbordUrl}/encrypted-fields`} target='_blank'>
+              in the Evervault Dashboard
+            </a>{' '}
+            and resending the request using the <code>curl</code> snippet below.
           </p>
+          <Snippet>
+            {`curl -H "Content-type: application/json" -d '{"lat": ${coords.lat}, "long": ${coords.long}}' '${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api'`}
+          </Snippet>
         </Pagination.Item>
       </Pagination>
     </main>

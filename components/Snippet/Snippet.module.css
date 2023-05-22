@@ -1,0 +1,12 @@
+.container {
+  position: relative;
+  border: 1px var(--grey-30) solid;
+  padding: var(--token-24);
+  border-radius: var(--token-16);
+  box-shadow: var(--box-shadow);
+  white-space: nowrap;
+  overflow: scroll;
+  font-size: var(--font-size-tiny);
+  font-family: var(--font-roboto-mono);
+  line-height: 1;
+}
