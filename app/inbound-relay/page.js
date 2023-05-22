@@ -21,7 +21,7 @@ export default function Inputs() {
   async function sendRequest() {
     try {
       await fetch(
-        'https://evervault-starter-kit.vercel.app/inbound-relay/api',
+        'https://evervault-starter-kit-vercel-app.relay.evervault.com/inbound-relay/api',
         {
           method: 'POST',
           headers: {
