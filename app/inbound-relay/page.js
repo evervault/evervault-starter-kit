@@ -21,7 +21,7 @@ export default function Inputs() {
 
   async function sendRequest() {
     try {
-      let test = await axios.post(
+      await axios.post(
         'https://evervault-starter-kit-vercel-app.relay.evervault.com/inbound-relay/api',
         {
           lat: coords.lat,
