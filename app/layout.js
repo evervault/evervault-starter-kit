@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={cn(inter.className, robotoMono.className)}>
+      <body className={inter.className}>
         <Navigation />
         <div className='rootLayout'>{children}</div>
       </body>

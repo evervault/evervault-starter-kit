@@ -56,7 +56,7 @@ export default function Inputs() {
             Relay, it encrypts any configured fields before forwarding the
             request to its original destination. When we installed the Evervault
             integration, we created an Inbound Relay that proxies requests to
-            this <code>Vercel URL</code>.
+            this Vercel URL.
           </p>
           <p>
             In this example, we're going to collect some sensitive data on the
