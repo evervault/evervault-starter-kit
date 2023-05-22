@@ -16,10 +16,10 @@
 }
 
 .method {
+  padding: var(--token-04) var(--token-08);
   border-radius: var(--token-24);
   border: 1px var(--grey-70) solid;
   margin-right: var(--token-12);
-  padding: var(--token-04) var(--token-08);
   line-height: 1;
   color: var(--grey-40);
   background: var(--grey-90);
