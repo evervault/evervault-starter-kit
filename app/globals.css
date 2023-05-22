@@ -64,7 +64,7 @@
   padding: 0;
   margin: 0;
   color: var(--grey-70);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -139,7 +139,7 @@ code {
   border-radius: var(--token-08);
   font-size: var(--font-size-tiny);
   font-weight: 500;
-  font-family: 'Roboto Mono';
+  font-family: var(--font-roboto-mono);
 }
 
 a {
@@ -156,7 +156,7 @@ a:hover {
 }
 
 pre {
-  font-family: 'Roboto Mono';
+  font-family: var(--font-roboto-mono);
   font-weight: 400;
 }
 

@@ -1,10 +1,12 @@
 import './globals.css';
 import { Inter, Roboto_Mono } from 'next/font/google';
 import Navigation from '@/components/Navigation/Navigation';
-import cn from 'classnames';
 
-const inter = Inter({ subsets: ['latin'] });
-const robotoMono = Roboto_Mono({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  variable: '--font-roboto-mono',
+});
 
 export const metadata = {
   title: 'Evervault Starter Kit',
@@ -14,7 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body
+        className={`${inter.variable} font-sans; ${robotoMono.variable} font-monospace;`}
+      >
         <Navigation />
         <div className='rootLayout'>{children}</div>
       </body>
