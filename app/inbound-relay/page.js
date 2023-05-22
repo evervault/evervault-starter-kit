@@ -28,7 +28,6 @@ export default function Inputs() {
           long: coords.long,
         }
       );
-      console.log(test);
       // setActiveIndex(2);
     } catch (error) {
       console.log(error);
