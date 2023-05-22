@@ -5,3 +5,7 @@ export async function POST(request) {
   console.log(requestBody);
   return NextResponse.json(request.body);
 }
+
+export async function OPTIONS() {
+  return NextResponse.ok();
+}

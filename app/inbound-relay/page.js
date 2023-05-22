@@ -7,6 +7,7 @@ import List from '@/components/List/List';
 import Pagination from '@/components/Pagination/Pagination';
 import Request from '@/components/Request/Request';
 import styles from './page.module.css';
+import axios from 'axios';
 
 export default function Inputs() {
   const [coords, setCoords] = useState({ lat: undefined, long: undefined });
@@ -20,17 +21,11 @@ export default function Inputs() {
 
   async function sendRequest() {
     try {
-      await fetch(
-        'https://evervault-starter-kit-vercel-app.relay.evervault.com/inbound-relay/api',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(coords),
-        }
-      );
-      setActiveIndex(2);
+      await axios.post('http://localhost:3000/inbound-relay/api', {
+        lat: coords.lat,
+        long: coords.long,
+      });
+      // setActiveIndex(2);
     } catch (error) {
       console.log(error);
     }
