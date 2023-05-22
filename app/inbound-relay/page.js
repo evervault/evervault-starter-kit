@@ -21,10 +21,13 @@ export default function Inputs() {
 
   async function sendRequest() {
     try {
-      await axios.post('http://localhost:3000/inbound-relay/api', {
-        lat: coords.lat,
-        long: coords.long,
-      });
+      await axios.post(
+        'https://evervault-starter-kit-vercel-app.relay.evervault.com/inbound-relay/api',
+        {
+          lat: coords.lat,
+          long: coords.long,
+        }
+      );
       // setActiveIndex(2);
     } catch (error) {
       console.log(error);
