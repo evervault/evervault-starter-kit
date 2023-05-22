@@ -19,17 +19,21 @@ export default function Inputs() {
   }
 
   async function sendRequest() {
-    await fetch(
-      'https://evervault-starter-kit-vercel-app.relay.evervault.com/inbound-relay/api',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(coords),
-      }
-    );
-    setActiveIndex(2);
+    try {
+      await fetch(
+        'https://evervault-starter-kit.vercel.app/inbound-relay/api',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(coords),
+        }
+      );
+      setActiveIndex(2);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
