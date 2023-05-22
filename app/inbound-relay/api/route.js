@@ -6,6 +6,6 @@ export async function POST(request) {
   return NextResponse.json(request.body);
 }
 
-export async function OPTIONS() {
-  return new Response(null, { status: 200 });
-}
+// export async function OPTIONS() {
+//   return new Response(null, { status: 200 });
+// }
