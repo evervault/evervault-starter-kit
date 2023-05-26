@@ -63,7 +63,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  color: var(--grey-70);
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
 }
@@ -75,7 +74,7 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--grey-70);
   background: linear-gradient(
       to bottom,
       transparent,
@@ -155,7 +154,7 @@ a:hover {
   opacity: 0.75;
 }
 
-pre {
+pre * {
   font-family: var(--font-roboto-mono);
   font-weight: 400;
 }

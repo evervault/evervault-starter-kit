@@ -12,16 +12,18 @@ import Snippet from '@/components/Snippet/Snippet';
 import styles from './page.module.css';
 
 export default function Inputs() {
-  const [coords, setCoords] = useState({ lat: undefined, long: undefined });
   const [activeIndex, setActiveIndex] = useState(0);
+  const [coords, setCoords] = useState({ lat: undefined, long: undefined });
+  const [isLoading, setIsLoading] = useState(false);
 
-  function getLocation() {
+  function getCoordinates() {
     navigator.geolocation.getCurrentPosition(({ coords }) =>
       setCoords({ lat: coords.latitude, long: coords.longitude })
     );
   }
 
   async function sendRequest() {
+    setIsLoading(true);
     try {
       await axios.post(
         `${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api`,
@@ -33,6 +35,8 @@ export default function Inputs() {
       setActiveIndex(2);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -80,7 +84,7 @@ export default function Inputs() {
             />
             {!coords.lat && !coords.long && (
               <div className={styles.buttonOverlay}>
-                <Button onClick={getLocation}>Get Location Data</Button>
+                <Button onClick={getCoordinates}>Get Location Data</Button>
               </div>
             )}
           </div>
@@ -90,6 +94,7 @@ export default function Inputs() {
             <Button
               onClick={sendRequest}
               disabled={!coords.lat && !coords.long}
+              isLoading={isLoading}
             >
               Send Request
             </Button>
@@ -128,7 +133,7 @@ export default function Inputs() {
         </Pagination.Item>
         <Pagination.Item>
           <p>
-            The request was successfully sent to your server via Inbound Relay!
+            The request was successfully sent to the server via Inbound Relay!
           </p>
           <p>
             If you{' '}
@@ -144,6 +149,9 @@ export default function Inputs() {
               in the Evervault Dashboard
             </a>{' '}
             and resending the request using the <code>curl</code> snippet below.
+            If you remove <code>lat</code> and <code>long</code> from the list
+            of fields to encrypt, you'll see that they're no longer encrypted in
+            the Vercel logs.
           </p>
           <Snippet>
             {`curl -H "Content-type: application/json" -d '{"lat": ${coords.lat}, "long": ${coords.long}}' '${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api'`}

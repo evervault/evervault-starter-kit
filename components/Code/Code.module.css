@@ -1,0 +1,20 @@
+.container {
+  margin-bottom: var(--token-24);
+  border-radius: var(--token-24);
+}
+
+.code {
+  border-radius: var(--token-24);
+  display: block;
+  font-size: var(--font-size-tiny);
+  line-height: 1.25rem;
+  padding: var(--token-32);
+  overflow: scroll;
+}
+
+.lineNumber {
+  text-align: right;
+  user-select: none;
+  color: var(--grey-60);
+  padding-right: 1.5em;
+}

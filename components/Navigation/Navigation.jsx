@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
 
 import styles from './Navigation.module.css';
 

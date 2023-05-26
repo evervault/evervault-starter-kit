@@ -50,10 +50,18 @@ export default function Inputs() {
       <div className={styles.content}>
         <div>
           <p>
-            Evervault Inputs are embeddable iframe form components which allow
-            you to collect cardholder data and encrypt it before it touches your
-            client. This is particularly useful as it significantly reduces your
-            PCI Compliance scope.
+            Evervault Inputs is an embeddable <code>iframe</code> form component
+            that allows you to encrypt cardholder data before it touches your
+            browser. This means that neither your client nor your server touch
+            the cardholder data in plaintext, which significantly reduces your
+            PCI Compliance scope. Inputs can be fully{' '}
+            <a
+              href='https://docs.evervault.com/products/inputs#themes'
+              target='_blank'
+            >
+              customized
+            </a>{' '}
+            to match your your existing styling.
           </p>
           <EvervaultProvider
             teamId={process.env.NEXT_PUBLIC_TEAM_ID}
@@ -87,7 +95,7 @@ export default function Inputs() {
             Inputs is a React component (or a JavaScript embed) which supports
             an <code>onChange</code> function. Whenever an Inputs field is
             updated, this function is called and is passed the encrypted values.
-            All encryption happens on Evervault infrastructure.
+            All encryption operations happen within the Evervault iframe.
           </p>
           <Console logStream={logStream} title='Client Console' />
         </div>
