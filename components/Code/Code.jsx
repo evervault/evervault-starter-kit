@@ -5,10 +5,16 @@ import { theme } from './config';
 
 (typeof global !== 'undefined' ? global : window).Prism = Prism;
 
-export default function Code({ code, language }) {
+export default function Code({ code, language = 'js', request }) {
   return (
     <div className={styles.container}>
-      <Highlight code={code} language='js' theme={theme}>
+      {request && (
+        <div className={styles.request}>
+          <div className={styles.method}>{request.method}</div>
+          <div className={styles.url}>{request.url}</div>
+        </div>
+      )}
+      <Highlight code={code} language={language} theme={theme}>
         {({ style, tokens, getLineProps, getTokenProps }) => (
           <pre className={styles.code} style={style}>
             {tokens.map((line, i) => (

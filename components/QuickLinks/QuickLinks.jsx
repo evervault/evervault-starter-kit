@@ -7,7 +7,7 @@ export default function QuickLinks({ links }) {
     <div className={styles.container}>
       {links.map(({ title, href, icon }) => {
         return (
-          <Link href={href} key={title}>
+          <Link href={href} key={title} target='_blank'>
             <div className={styles.link}>
               <span className={styles.icon}>{icon}</span>
               {title}

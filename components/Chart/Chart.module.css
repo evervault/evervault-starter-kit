@@ -1,0 +1,6 @@
+.container {
+  border: 1px var(--grey-30) solid;
+  border-radius: var(--token-24);
+  box-shadow: var(--box-shadow);
+  margin-bottom: var(--token-24);
+}

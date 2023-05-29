@@ -2,6 +2,7 @@
 const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ['@evervault/sdk'],
+    esmExternals: 'loose',
   },
   async headers() {
     return [

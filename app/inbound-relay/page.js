@@ -3,11 +3,11 @@ import axios from 'axios';
 import { useState } from 'react';
 
 import Button from '@/components/Button/Button';
+import Code from '@/components/Code/Code';
 import Header from '@/components/Header/Header';
 import List from '@/components/List/List';
 import Pagination from '@/components/Pagination/Pagination';
 import { relayDashbordUrl, vercelLogsUrl } from './config';
-import Request from '@/components/Request/Request';
 import Snippet from '@/components/Snippet/Snippet';
 import styles from './page.module.css';
 
@@ -84,7 +84,7 @@ export default function Inputs() {
             />
             {!coords.lat && !coords.long && (
               <div className={styles.buttonOverlay}>
-                <Button onClick={getCoordinates}>Get Location Data</Button>
+                <Button onClick={getCoordinates}>Get Coordinates</Button>
               </div>
             )}
           </div>
@@ -115,12 +115,13 @@ export default function Inputs() {
             created during the integration, it'll be forwarded to the{' '}
             <code>/inbound-relay/api</code> endpoint.
           </p>
-          <Request
-            method='POST'
-            url={`${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api`}
-          >
-            {coords}
-          </Request>
+          <Code
+            code={JSON.stringify(coords, null, 2)}
+            request={{
+              method: 'POST',
+              url: `${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api`,
+            }}
+          />
           <p>
             Since <code>lat</code> and <code>long</code> are configured as{' '}
             <em>fields to encrypt</em>{' '}

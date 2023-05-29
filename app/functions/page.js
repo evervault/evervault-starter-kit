@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Button from '@/components/Button/Button';
 import Code from '@/components/Code/Code';
 import Coordinates from './components/Coordinates/Coordinates';
-import { functionCode, logsUrl } from './config';
+import { functionUrl, functionCode, logsUrl } from './config';
 import Header from '@/components/Header/Header';
 import Pagination from '@/components/Pagination/Pagination';
 import styles from './page.module.css';
@@ -48,9 +48,12 @@ export default function Functions() {
           cta={<Button onClick={() => setActiveIndex(1)}>Next Step</Button>}
         >
           <p>
-            Evervault Functions lets you process data encrypted by Evervault
-            using secure serverless functions that are hosted on Evervault’s
-            infrastructure and written in Node.js or Python.
+            When you send encrypted data to your server, there are probably
+            cases where you’ll want decrypt the data to perform validation
+            checks, run calculations, or some other processing. Evervault
+            Functions lets you process data encrypted by Evervault using secure
+            serverless functions that are hosted on Evervault’s infrastructure
+            and written in Node.js or Python.
           </p>
           <p>
             Any encrypted data that is passed to a Function is decrypted by the
@@ -60,13 +63,16 @@ export default function Functions() {
           </p>
           <p>
             When you installed the integration, we deployed{' '}
-            <a href=''> an Evervault Function</a> for you called{' '}
-            <code>get-distance-to-new-york</code>. The Function takes latitude
-            and longitude coordinates as a payload and returns the distance in
-            kilometres from that location to New York. If we pass an encrypted{' '}
-            <code>lat</code> and <code>long</code>, the Function’s runtime will
-            automatically decrypt the payload and run the calculation on the
-            plaintext values.{' '}
+            <a href={functionUrl} target='_blank'>
+              {' '}
+              an Evervault Function
+            </a>{' '}
+            for you called <code>get-distance-to-new-york</code>. The Function
+            takes latitude and longitude coordinates as a payload and returns
+            the distance in kilometres from that location to New York. If we
+            pass an encrypted <code>lat</code> and <code>long</code>, the
+            Function’s runtime will automatically decrypt the payload and run
+            the calculation on the plaintext values.{' '}
           </p>
         </Pagination.Item>
         <Pagination.Item

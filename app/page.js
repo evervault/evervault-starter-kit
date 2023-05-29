@@ -38,7 +38,7 @@ export default function Home() {
           },
           {
             title: 'Go the the Dashboard',
-            href: 'https://docs.evervault.com',
+            href: 'https://app.evervault.com',
             icon: <Monitor width={18} />,
           },
         ]}

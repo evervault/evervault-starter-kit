@@ -1,5 +1,6 @@
 'use client';
 import { EvervaultProvider, EvervaultInput } from '@evervault/react';
+import Link from 'next/link';
 import { useState } from 'react';
 
 import Button from '@/components/Button/Button';
@@ -95,7 +96,10 @@ export default function Inputs() {
             Inputs is a React component (or a JavaScript embed) which supports
             an <code>onChange</code> function. Whenever an Inputs field is
             updated, this function is called and is passed the encrypted values.
-            All encryption operations happen within the Evervault iframe.
+            All encryption operations happen within the Evervault{' '}
+            <code>iframe</code>. To use the encrypted cardholder data, you can
+            proxy it through <Link href='/outbound-relay'>Outbound Relay</Link>{' '}
+            or process it in a <Link href='/functions'>Function</Link>.
           </p>
           <Console logStream={logStream} title='Client Console' />
         </div>

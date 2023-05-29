@@ -1,10 +1,11 @@
 .container {
   margin-bottom: var(--token-24);
   border-radius: var(--token-24);
+  background: var(--grey-90);
+  overflow: hidden;
 }
 
 .code {
-  border-radius: var(--token-24);
   display: block;
   font-size: var(--font-size-tiny);
   line-height: 1.25rem;
@@ -17,4 +18,31 @@
   user-select: none;
   color: var(--grey-60);
   padding-right: 1.5em;
+}
+
+.request {
+  font-size: var(--font-size-tiny);
+  border-bottom: 1px var(--grey-80) solid;
+  padding: var(--token-12);
+  display: flex;
+  align-items: center;
+}
+
+.method {
+  padding: var(--token-04) var(--token-08);
+  border-radius: var(--token-24);
+  border: 1px var(--grey-70) solid;
+  margin-right: var(--token-12);
+  line-height: 1;
+  color: var(--grey-40);
+  background: var(--grey-90);
+  font-weight: 500;
+}
+
+.url {
+  line-height: 1;
+  color: var(--grey-00);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

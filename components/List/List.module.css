@@ -15,6 +15,7 @@
   justify-content: space-between;
   height: var(--token-64);
   padding: 0 var(--token-24);
+  text-align: right;
 }
 
 .item::after {
