@@ -9,14 +9,15 @@ export default function Home() {
     <main className={styles.main}>
       <h1>Welcome, developer</h1>
       <p>
-        This Starter Kit is a Next.js app with Evervault installed. Each page
-        includes a sandbox of a different Evervault product to help you get up
-        to speed with the platform.
+        Evervault is an encryption and data security platform built for
+        developers.
       </p>
       <p>
-        As you can see below, we've already populated your credentials for you.
-        We also provisioned some Evervault resources during the integration
-        which you'll be able to explore on each page.
+        This Starter Kit is a Next.js app with Evervault installed. Each page
+        includes a sandbox of a different Evervault product to help you get up
+        to speed with the platform. During the integration process, we created
+        some Evervault resources for you to use, and injected them into this
+        project as environment variables.
       </p>
       <List
         items={[
@@ -24,11 +25,7 @@ export default function Home() {
           { key: 'App ID', value: process.env.NEXT_PUBLIC_APP_ID },
         ]}
       />
-      <p>
-        Evervault is an encryption and data security platform built for
-        developers like you. We've included some additional resources below to
-        help you get up to speed.
-      </p>
+      <p>We've also included some additional resources below.</p>
       <QuickLinks
         links={[
           {

@@ -36,10 +36,9 @@
   --token-128: 6.4rem;
   --token-156: 7.8rem;
 
-  --font-size-tiny: 0.8rem;
-  --font-size-small: 0.9rem;
-  --font-size-medium: 1rem;
-  --font-size-large: 1.2rem;
+  --font-size-regular: 0.8rem;
+  --font-size-medium: 0.9rem;
+  --font-size-large: 1rem;
 
   --font-size-h1: 2rem;
   --font-size-h2: 1.8rem;
@@ -48,15 +47,10 @@
   --font-size-h5: 1.2rem;
   --font-size-h6: 1rem;
 
-  --fw-h1: 600;
-  --fw-h2: 600;
-  --fw-h3: 600;
-  --fw-h4: 600;
-  --fw-h5: 600;
-  --fw-h6: 600;
+  --fw-headings: 600;
 
-  --box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.075);
   --headings-color: var(--grey-100);
+  --box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.075);
 }
 
 * {
@@ -83,48 +77,53 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+:focus-visible {
+  outline: 2px #a585f9 solid;
+  transition: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
 h1 {
-  font-weight: var(--fw-h1);
+  font-weight: var(--fw-headings);
   font-size: var(--font-size-h1);
   margin-bottom: var(--token-16);
   color: var(--headings-color);
 }
 
 h2 {
-  font-weight: var(--fw-h2);
+  font-weight: var(--fw-headings);
   font-size: var(--font-size-h2);
   margin-bottom: var(--token-16);
   color: var(--headings-color);
 }
 
 h3 {
-  font-weight: var(--fw-h3);
+  font-weight: var(--fw-headings);
   font-size: var(--font-size-h3);
   margin-bottom: var(--token-16);
   color: var(--headings-color);
 }
 
 h4 {
-  font-weight: var(--fw-h4);
+  font-weight: var(--fw-headings);
   font-size: var(--font-size-h4);
   margin-bottom: var(--token-16);
   color: var(--headings-color);
 }
 
 h5 {
-  font-weight: var(--fw-h6);
+  font-weight: var(--fw-headings);
   font-size: var(--font-size-h5);
   margin-bottom: var(--token-16);
   color: var(--headings-color);
 }
 
 p {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-medium);
   font-weight: var(--fw-p);
   line-height: 1.5;
   margin-bottom: var(--token-24);
@@ -136,7 +135,7 @@ code {
   background: var(--grey-10);
   padding: 1px var(--token-04);
   border-radius: var(--token-08);
-  font-size: var(--font-size-tiny);
+  font-size: var(--font-size-regular);
   font-weight: 500;
   font-family: var(--font-roboto-mono);
 }
@@ -160,7 +159,7 @@ pre * {
 }
 
 .rootLayout {
-  padding: var(--token-48) 0;
+  padding: var(--token-48) var(--token-24);
   margin: 0 auto;
   max-width: var(--max-width);
 }

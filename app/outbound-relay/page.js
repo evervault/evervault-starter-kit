@@ -9,8 +9,9 @@ import Coordinates from './components/Coordinates/Coordinates';
 import Header from '@/components/Header/Header';
 import { logsUrl } from './config';
 import Pagination from '@/components/Pagination/Pagination';
-import styles from './page.module.css';
+import { sourceUrls } from '../config';
 import Snippet from '@/components/Snippet/Snippet';
+import styles from './page.module.css';
 
 export default function OutboundRelay() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -38,8 +39,14 @@ export default function OutboundRelay() {
     <main className={styles.main}>
       <Header
         links={[
-          { title: 'Docs', href: 'https://docs.evervault.com/' },
-          { title: 'GitHub', href: 'https://docs.evervault.com' },
+          {
+            title: 'Docs',
+            href: 'https://docs.evervault.com/products/outbound-relay',
+          },
+          {
+            title: 'View Source',
+            href: sourceUrls.outboundRelay,
+          },
         ]}
       >
         Outbound Relay

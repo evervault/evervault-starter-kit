@@ -7,7 +7,7 @@
 
 .code {
   display: block;
-  font-size: var(--font-size-tiny);
+  font-size: var(--font-size-regular);
   line-height: 1.25rem;
   padding: var(--token-32);
   overflow: scroll;
@@ -21,7 +21,7 @@
 }
 
 .request {
-  font-size: var(--font-size-tiny);
+  font-size: var(--font-size-regular);
   border-bottom: 1px var(--grey-80) solid;
   padding: var(--token-12);
   display: flex;

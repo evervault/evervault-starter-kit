@@ -1,6 +1,7 @@
-import Link from 'next/link';
-import styles from './Header.module.css';
 import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+
+import styles from './Header.module.css';
 
 export default function Header({ children, links }) {
   return (
@@ -10,7 +11,7 @@ export default function Header({ children, links }) {
         <div className={styles.links}>
           {links.map(({ title, href }) => {
             return (
-              <Link href='/' key={href}>
+              <Link href={href} key={href} target='_blank'>
                 <span className={styles.link}>
                   {title} <ArrowUpRight width={14} strokeWidth={2.5} />
                 </span>

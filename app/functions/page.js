@@ -9,6 +9,7 @@ import Coordinates from './components/Coordinates/Coordinates';
 import { functionUrl, functionCode, logsUrl } from './config';
 import Header from '@/components/Header/Header';
 import Pagination from '@/components/Pagination/Pagination';
+import { sourceUrls } from '../config';
 import styles from './page.module.css';
 
 export default function Functions() {
@@ -37,8 +38,14 @@ export default function Functions() {
     <main className={styles.main}>
       <Header
         links={[
-          { title: 'Docs', href: 'https://docs.evervault.com/' },
-          { title: 'GitHub', href: 'https://docs.evervault.com' },
+          {
+            title: 'Docs',
+            href: 'https://docs.evervault.com/products/functions',
+          },
+          {
+            title: 'View Source',
+            href: sourceUrls.functions,
+          },
         ]}
       >
         Functions

@@ -4,12 +4,20 @@
   margin-bottom: var(--token-16);
 }
 
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--token-12);
+  }
+}
+
 .container h1 {
   margin-bottom: 0;
+  margin-right: var(--token-12);
 }
 
 .links {
-  margin-left: var(--token-12);
   display: flex;
   gap: var(--token-12);
 }
@@ -23,7 +31,7 @@
   align-items: center;
   justify-content: center;
   border: 1px var(--grey-30) solid;
-  font-size: var(--font-size-tiny);
+  font-size: var(--font-size-regular);
   font-weight: 500;
   padding: 0 var(--token-08);
   border-radius: var(--token-24);

@@ -8,6 +8,7 @@ import Console from '@/components/Console/Console';
 import Header from '@/components/Header/Header';
 import Input from '@/components/Input/Input';
 import { inputsConfig } from './config';
+import { sourceUrls } from '../config';
 import styles from './page.module.css';
 
 export default function Inputs() {
@@ -42,8 +43,14 @@ export default function Inputs() {
     <main>
       <Header
         links={[
-          { title: 'Docs', href: 'https://docs.evervault.com/' },
-          { title: 'GitHub', href: 'https://docs.evervault.com' },
+          {
+            title: 'Docs',
+            href: 'https://docs.evervault.com/products/inputs',
+          },
+          {
+            title: 'View Source',
+            href: sourceUrls.inputs,
+          },
         ]}
       >
         Inputs

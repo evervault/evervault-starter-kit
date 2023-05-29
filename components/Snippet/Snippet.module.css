@@ -6,7 +6,7 @@
   box-shadow: var(--box-shadow);
   white-space: nowrap;
   overflow: scroll;
-  font-size: var(--font-size-tiny);
+  font-size: var(--font-size-regular);
   font-family: var(--font-roboto-mono);
   line-height: 1;
   margin-bottom: var(--token-24);

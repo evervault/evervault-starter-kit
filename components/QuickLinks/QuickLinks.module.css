@@ -4,6 +4,12 @@
   grid-gap: var(--token-24);
 }
 
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
 .container a {
   text-decoration: none;
   color: inherit;
@@ -13,7 +19,7 @@
   display: flex;
   align-items: center;
   border-radius: var(--token-16);
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-medium);
   box-shadow: var(--box-shadow);
   border: 1px var(--grey-30) solid;
   height: var(--token-64);

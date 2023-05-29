@@ -5,7 +5,7 @@
   border: none;
   border-radius: var(--token-24);
   display: block;
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-medium);
   font-weight: 500;
   transition: opacity 0.2s;
   cursor: pointer;

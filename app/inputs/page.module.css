@@ -4,6 +4,12 @@
   grid-gap: var(--token-64);
 }
 
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+
 .inputsWrapper {
   position: relative;
   width: calc(100% + var(--token-64));
@@ -34,7 +40,7 @@
 .inputsWrapper::after {
   content: 'Inputs';
   position: absolute;
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-medium);
   background: var(--grey-00);
   left: calc(-1 * var(--token-32) - var(--token-12));
   padding: var(--token-08) 0;

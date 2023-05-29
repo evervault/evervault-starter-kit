@@ -3,7 +3,7 @@
   border: 1px var(--grey-30) solid;
   margin-bottom: var(--token-24);
   border-radius: var(--token-16);
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-medium);
   box-shadow: var(--box-shadow);
   line-height: normal;
 }

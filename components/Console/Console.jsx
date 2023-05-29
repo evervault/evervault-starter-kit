@@ -13,9 +13,9 @@ export default function Console({ logStream, title }) {
     <div className={styles.container}>
       <div className={styles.title}>{title}</div>
       <div className={styles.logStream} ref={logStreamRef}>
-        {logStream.map(({ type, log }) => {
+        {logStream.map(({ type, log }, index) => {
           return (
-            <div className={styles.log} key={log}>
+            <div className={styles.log} key={log + index}>
               <span className={styles.type}>{type}</span>
               <pre>{JSON.stringify(log, null, 2)}</pre>
             </div>

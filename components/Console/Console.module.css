@@ -8,7 +8,7 @@
 
 .container pre {
   position: relative;
-  font-size: var(--font-size-tiny);
+  font-size: var(--font-size-regular);
   color: var(--grey-20);
   font-family: monospace;
   line-height: 1.4;
@@ -32,7 +32,7 @@
   left: 50%;
   transform: translateX(-50%);
   top: calc(-1 * var(--token-16));
-  font-size: var(--font-size-tiny);
+  font-size: var(--font-size-regular);
   border: 1px var(--grey-70) solid;
   display: flex;
   align-items: center;
@@ -59,7 +59,7 @@
 
 .type {
   display: inline-block;
-  font-size: var(--font-size-tiny);
+  font-size: var(--font-size-regular);
   padding: var(--token-08) var(--token-12);
   border-radius: var(--token-24);
   margin-bottom: var(--token-16);

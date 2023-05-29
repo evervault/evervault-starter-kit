@@ -9,6 +9,7 @@ import List from '@/components/List/List';
 import Pagination from '@/components/Pagination/Pagination';
 import { relayDashbordUrl, vercelLogsUrl } from './config';
 import Snippet from '@/components/Snippet/Snippet';
+import { sourceUrls } from '../config';
 import styles from './page.module.css';
 
 export default function Inputs() {
@@ -44,8 +45,14 @@ export default function Inputs() {
     <main className={styles.main}>
       <Header
         links={[
-          { title: 'Docs', href: 'https://docs.evervault.com/' },
-          { title: 'GitHub', href: 'https://docs.evervault.com' },
+          {
+            title: 'Docs',
+            href: 'https://docs.evervault.com/products/inbound-relay',
+          },
+          {
+            title: 'View Source',
+            href: sourceUrls.inboundRelay,
+          },
         ]}
       >
         Inbound Relay
