@@ -56,12 +56,12 @@ export default function OutboundRelay() {
           cta={<Button onClick={() => setActiveIndex(1)}>Next Step</Button>}
         >
           <p>
-            Outbound Relay is an encryption proxy that allows you to share
+            Outbound Relay is an decryption proxy that allows you to share
             Evervault-encrypted data from your server to third-party APIs. Under
-            the hood, Outbound Relay is an HTTP CONNECT proxy that intercepts
-            requests from your API to specific third-party hostnames, terminates
-            TLS and swaps encrypted data with the original plaintext. By the
-            time the request reaches the third-party API, all fields are
+            the hood, Outbound Relay is an HTTP <code>CONNECT</code> proxy that
+            intercepts requests from your API to specific third-party endpoints,
+            terminates TLS and swaps encrypted data with the original plaintext.
+            By the time the request reaches the third-party API, all fields are
             decrypted, and the request will appear as a valid API request for
             the third-party.
           </p>
@@ -91,10 +91,13 @@ export default function OutboundRelay() {
           }
         >
           <p>
-            In this example, we’re going to send a request from the server to
-            Open-Meteo’s Weather API using encrypted latitude and longitude
-            coordinates as parameters. Outbound Relay will automatically decrypt
-            the coordinates, allowing the request to be fulfilled.{' '}
+            In this example, we’re going to send a request from the server to{' '}
+            <a href='https://open-meteo.com/en/docs'>
+              Open-Meteo’s Weather API
+            </a>{' '}
+            using encrypted latitude and longitude coordinates as parameters.
+            Outbound Relay will automatically decrypt the coordinates, allowing
+            the request to be fulfilled.{' '}
           </p>
           <p>
             First, we’ll collect your latitude and longitude coordinates from
@@ -120,12 +123,18 @@ export default function OutboundRelay() {
             send a request from the server to the weather API.
           </p>
           <p>
-            This template includes a simple Next Route Handler called NANA. If
-            you view the source, you'll see that the Evervault Node SDK has been
-            included and initialized, and that the{' '}
-            <code>enableOutboundRelay</code> function has been called. We're
-            going to call the Route Handler from the browser, and the Route
-            Handler will send a request to the weather API.
+            This template includes a simple Next.js{' '}
+            <a
+              href='https://nextjs.org/docs/app/building-your-application/routing/router-handlers'
+              target='_blank'
+            >
+              Route Handler
+            </a>{' '}
+            at <code>/outbound-relay/api</code>. If you view the source, you'll
+            see that the Evervault Node SDK has been included and initialized,
+            and that the <code>enableOutboundRelay</code> function has been
+            called. We're going to call the Route Handler from the browser, and
+            the Route Handler will send a request to the weather API.
           </p>
           <p>
             During the integration, we also created an Outbound Relay
@@ -154,7 +163,7 @@ export default function OutboundRelay() {
           <p>
             You can find logs for this request in the{' '}
             <a href={logsUrl} target='_blank'>
-              Evervault dashboard
+              Evervault Dashboard
             </a>
             .
           </p>

@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   margin-bottom: var(--token-24);
   border-radius: var(--token-24);
   background: var(--grey-90);

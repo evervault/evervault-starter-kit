@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-
 import styles from './Navigation.module.css';
 
 const pages = [
@@ -22,8 +21,8 @@ export default function Navigation() {
       <div className={styles.logoContainer}>
         <Image
           src='/logo.svg'
-          width={48}
-          height={48}
+          width={40}
+          height={40}
           alt='Purple Evervault logo'
         />
         <Image

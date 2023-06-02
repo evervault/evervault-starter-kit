@@ -1,13 +1,40 @@
 .container {
   position: relative;
   border: 1px var(--grey-30) solid;
-  padding: var(--token-24);
+  height: var(--token-64);
   border-radius: var(--token-16);
   box-shadow: var(--box-shadow);
   white-space: nowrap;
   overflow: scroll;
-  font-size: var(--font-size-regular);
-  font-family: var(--font-roboto-mono);
   line-height: 1;
   margin-bottom: var(--token-24);
+  display: flex;
+  align-items: center;
+}
+
+.code {
+  height: 100%;
+  padding-left: var(--token-24);
+  padding-right: var(--token-24);
+  overflow: scroll;
+  font-size: var(--font-size-regular);
+  font-family: var(--font-roboto-mono);
+  display: flex;
+  align-items: center;
+}
+
+.copy {
+  min-width: var(--token-64);
+  height: var(--token-64);
+  border: none;
+  border-left: 1px var(--grey-20) solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grey-00);
+  transition: 0.15s;
+}
+
+.copy:hover {
+  background: var(--grey-10);
 }

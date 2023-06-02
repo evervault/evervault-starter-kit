@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 import Button from '@/components/Button/Button';
+import Callout from '@/components/Callout/Callout';
 import Code from '@/components/Code/Code';
 import Header from '@/components/Header/Header';
 import List from '@/components/List/List';
@@ -15,16 +16,29 @@ import styles from './page.module.css';
 export default function Inputs() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [coords, setCoords] = useState({ lat: undefined, long: undefined });
-  const [isLoading, setIsLoading] = useState(false);
+  const [requestLoading, setRequestLoading] = useState(false);
+  const [coordsLoading, setCoordsLoading] = useState(false);
+  const [fallback, setFallback] = useState(false);
 
   function getCoordinates() {
-    navigator.geolocation.getCurrentPosition(({ coords }) =>
-      setCoords({ lat: coords.latitude, long: coords.longitude })
+    setCoordsLoading(true);
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        setCoords({ lat: coords.latitude, long: coords.longitude });
+        setCoordsLoading(false);
+      },
+      () => {
+        const dublinCoords = { lat: 53.3498, long: 6.2603 };
+        setCoords(dublinCoords);
+        setCoordsLoading(false);
+        setFallback(true);
+      },
+      { timeout: 5000 }
     );
   }
 
   async function sendRequest() {
-    setIsLoading(true);
+    setRequestLoading(true);
     try {
       await axios.post(
         `${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api`,
@@ -37,7 +51,7 @@ export default function Inputs() {
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(false);
+      setRequestLoading(false);
     }
   }
 
@@ -91,17 +105,26 @@ export default function Inputs() {
             />
             {!coords.lat && !coords.long && (
               <div className={styles.buttonOverlay}>
-                <Button onClick={getCoordinates}>Get Coordinates</Button>
+                <Button onClick={getCoordinates} isLoading={coordsLoading}>
+                  Get Coordinates
+                </Button>
               </div>
             )}
           </div>
+          {fallback && (
+            <Callout>
+              Since we weren't able to get your coordinates (maybe your Location
+              Services are disabled for the browser), we've populated the
+              coordinates of <em>Dublin, Ireland</em> as an example.
+            </Callout>
+          )}
         </Pagination.Item>
         <Pagination.Item
           cta={
             <Button
               onClick={sendRequest}
               disabled={!coords.lat && !coords.long}
-              isLoading={isLoading}
+              isLoading={requestLoading}
             >
               Send Request
             </Button>
@@ -161,7 +184,7 @@ export default function Inputs() {
             of fields to encrypt, you'll see that they're no longer encrypted in
             the Vercel logs.
           </p>
-          <Snippet>
+          <Snippet copiable>
             {`curl -H "Content-type: application/json" -d '{"lat": ${coords.lat}, "long": ${coords.long}}' '${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api'`}
           </Snippet>
         </Pagination.Item>

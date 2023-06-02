@@ -20,7 +20,7 @@
 }
 
 .button:disabled {
-  background: var(--grey-30);
+  background: var(--grey-40);
 }
 
 .spinnerContainer {

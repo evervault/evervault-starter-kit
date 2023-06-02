@@ -3,8 +3,7 @@ export const functionCode = `// This Function uses the ‘haversine’ formula t
 // is passed into the Function is encrypted.
 
 exports.handler = async (data, context) => {
-    const lat = data.lat;
-    const long = data.long;
+    const { lat, long }  = data;
     const R = 6371; // Radius of Earth in kilometres
     const newYork = { lat: 40.7128, long: 74.006 };
 
@@ -17,7 +16,6 @@ exports.handler = async (data, context) => {
         Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
         Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
     const d = R * c;
     return \`You're currently \${d.toFixed(0)}km from New York!\`;
 };`;

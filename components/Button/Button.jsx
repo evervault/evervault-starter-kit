@@ -1,11 +1,22 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import Spinner from '../Spinner/Spinner';
-import styles from './Button.module.css';
 import cn from 'classnames';
 
-export default function Button({ children, className, isLoading, ...props }) {
+import Spinner from '../Spinner/Spinner';
+import styles from './Button.module.css';
+
+export default function Button({
+  children,
+  className,
+  isLoading,
+  disabled,
+  ...props
+}) {
   return (
-    <button className={cn(styles.button, className)} {...props}>
+    <button
+      {...props}
+      className={cn(styles.button, className)}
+      disabled={disabled || isLoading}
+    >
       <motion.span initial={false} animate={{ opacity: isLoading ? 0 : 1 }}>
         {children}
       </motion.span>

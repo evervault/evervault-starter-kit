@@ -100,10 +100,9 @@ export default function Inputs() {
         </div>
         <div>
           <p>
-            Inputs is a React component (or a JavaScript embed) which supports
-            an <code>onChange</code> function. Whenever an Inputs field is
-            updated, this function is called and is passed the encrypted values.
-            All encryption operations happen within the Evervault{' '}
+            Whenever an Inputs field is updated, an <code>onChange</code>{' '}
+            function is called and is passed the encrypted values. All
+            encryption operations happen within the Evervault{' '}
             <code>iframe</code>. To use the encrypted cardholder data, you can
             proxy it through <Link href='/outbound-relay'>Outbound Relay</Link>{' '}
             or process it in a <Link href='/functions'>Function</Link>.

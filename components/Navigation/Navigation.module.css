@@ -1,20 +1,17 @@
 .container {
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  padding: var(--token-32) 0;
+  padding: var(--token-32);
 }
 
 .logoContainer {
-  width: var(--token-128);
-  height: var(--token-128);
+  width: 5rem;
+  height: 5rem;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: var(--token-32);
 }
 
 .starterKitBanner {
@@ -27,11 +24,15 @@
 }
 
 .navigation {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   padding: var(--token-08);
   border: 1px var(--grey-30) solid;
   border-radius: var(--token-64);
   box-shadow: var(--box-shadow);
+  background: var(--grey-00);
 }
 
 @media (max-width: 600px) {

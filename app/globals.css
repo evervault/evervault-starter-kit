@@ -64,7 +64,7 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 body {
@@ -159,7 +159,7 @@ pre * {
 }
 
 .rootLayout {
-  padding: var(--token-48) var(--token-24);
+  padding: var(--token-24) var(--token-24) var(--token-64) var(--token-24);
   margin: 0 auto;
   max-width: var(--max-width);
 }

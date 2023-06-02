@@ -1,7 +1,7 @@
 .container {
   position: relative;
   background: var(--grey-90);
-  height: 550px;
+  height: 475px;
   border-radius: var(--token-24);
   max-width: 100%;
 }
