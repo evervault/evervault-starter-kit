@@ -5,13 +5,14 @@ import { useState } from 'react';
 
 import Button from '@/components/Button/Button';
 import Chart from '@/components/Chart/Chart';
-import Coordinates from './components/Coordinates/Coordinates';
+import Coordinates from '@/components/Coordinates/Coordinates';
 import Header from '@/components/Header/Header';
 import { logsUrl } from './config';
 import Pagination from '@/components/Pagination/Pagination';
 import { sourceUrls } from '../config';
 import Snippet from '@/components/Snippet/Snippet';
 import styles from './page.module.css';
+import QuickLinks from '@/components/QuickLinks/QuickLinks';
 
 export default function OutboundRelay() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -108,7 +109,7 @@ export default function OutboundRelay() {
             teamId={process.env.NEXT_PUBLIC_TEAM_ID}
             appId={process.env.NEXT_PUBLIC_APP_ID}
           >
-            <Coordinates coords={coords} setCoords={setCoords} />
+            <Coordinates coords={coords} setCoords={setCoords} encrypt />
           </EvervaultProvider>
         </Pagination.Item>
         <Pagination.Item
@@ -153,11 +154,12 @@ export default function OutboundRelay() {
         <Pagination.Item>
           <p>
             Success! The request to the weather API succeeded even though we
-            sent encrypted latitude and longitude parameters. Outbound Relay
-            intercepted the request, decrypted the parameters, and forwarded the
-            request to the weather API; your server never touched the plaintext
-            coordinates. Here's the response from the weather API showing the
-            5-day temperature forecast for your location:
+            sent encrypted <code>latitude</code> and <code>longitude</code>{' '}
+            parameters. Outbound Relay intercepted the request, decrypted the
+            parameters, and forwarded the request to the weather API; your
+            server never touched the plaintext coordinates. Here's the response
+            from the weather API showing the 5-day temperature forecast for your
+            location:
           </p>
           <Chart data={result} />
           <p>
@@ -167,6 +169,7 @@ export default function OutboundRelay() {
             </a>
             .
           </p>
+          <QuickLinks exclude='Outbound Relay' />
         </Pagination.Item>
       </Pagination>
     </main>

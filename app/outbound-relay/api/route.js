@@ -2,9 +2,9 @@ import axios from 'axios';
 import { NextResponse } from 'next/server';
 const Evervault = require('@evervault/sdk');
 const evervault = new Evervault(process.env.EVERVAULT_API_KEY);
-evervault.enableOutboundRelay();
 
 export async function POST(request) {
+  await evervault.enableOutboundRelay();
   // The values for lat and long are encrypted
   const { lat, long } = await request.json();
   try {
@@ -17,6 +17,7 @@ export async function POST(request) {
       .map(([x, y]) => ({ x, y }));
     return NextResponse.json(formattedData);
   } catch (error) {
+    console.log(error);
     return NextResponse.json({ error: error.message });
   }
 }

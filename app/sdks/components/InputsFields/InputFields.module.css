@@ -1,0 +1,35 @@
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--token-16);
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.encryptButton {
+  position: absolute;
+  top: 50%;
+  right: var(--token-12);
+  transform: translateY(-50%);
+  padding: var(--token-08) var(--token-12);
+  background: var(--primary);
+  border: none;
+  border-radius: var(--token-24);
+  display: block;
+  font-size: var(--font-size-regular);
+  font-weight: 500;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  color: var(--grey-00);
+  line-height: 1;
+}
+
+.encryptButton:hover {
+  opacity: 0.8;
+}
+
+.encryptButton:disabled {
+  background: var(--grey-40);
+}

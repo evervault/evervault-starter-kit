@@ -3,7 +3,7 @@
   height: var(--token-56);
   border: 1px var(--grey-30) solid;
   border-radius: var(--token-12);
-  padding: 0 var(--token-16);
+  text-indent: var(--token-16);
   font-size: var(--font-size-large);
   margin-bottom: var(--token-08);
   margin-top: var(--token-08);
@@ -22,4 +22,8 @@
 .label {
   font-size: 15px;
   margin-bottom: var(--token-24);
+}
+
+.fieldWrapper {
+  position: relative;
 }

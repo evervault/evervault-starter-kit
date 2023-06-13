@@ -2,7 +2,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: var(--token-32);
+  justify-content: space-between;
+  padding: var(--token-32) var(--token-64);
 }
 
 .logoContainer {
@@ -23,6 +24,19 @@
   animation: rotate 32s linear infinite;
 }
 
+.dashboard {
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .dashboard {
+    display: none;
+  }
+  .logoContainer {
+    display: none;
+  }
+}
+
 .navigation {
   position: absolute;
   left: 50%;
@@ -35,15 +49,15 @@
   background: var(--grey-00);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .navigation {
     padding: var(--token-12);
     width: 100%;
     border: none;
     border-radius: 0;
-    border-top: 1px var(--grey-30) solid;
     border-bottom: 1px var(--grey-30) solid;
     overflow-x: scroll;
+    position: fixed;
   }
 }
 

@@ -1,13 +1,7 @@
-.content {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-gap: var(--token-64);
-}
-
-@media (max-width: 600px) {
-  .content {
-    grid-template-columns: 1fr;
-  }
+.main {
+  max-width: 550px;
+  margin: 0 auto;
+  padding-bottom: 8rem;
 }
 
 .inputsWrapper {

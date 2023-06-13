@@ -1,10 +1,13 @@
 import styles from './Input.module.css';
 
-export default function Input({ label, ...props }) {
+export default function Input({ label, action, ...props }) {
   return (
     <label className={styles.label}>
       {label}
-      <input className={styles.input} {...props} />
+      <div className={styles.fieldWrapper}>
+        <input className={styles.input} {...props} />
+        {action && action}
+      </div>
     </label>
   );
 }

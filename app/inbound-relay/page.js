@@ -3,42 +3,23 @@ import axios from 'axios';
 import { useState } from 'react';
 
 import Button from '@/components/Button/Button';
-import Callout from '@/components/Callout/Callout';
 import Code from '@/components/Code/Code';
+import Coordinates from '@/components/Coordinates/Coordinates';
 import Header from '@/components/Header/Header';
-import List from '@/components/List/List';
 import Pagination from '@/components/Pagination/Pagination';
 import { relayDashbordUrl, vercelLogsUrl } from './config';
 import Snippet from '@/components/Snippet/Snippet';
 import { sourceUrls } from '../config';
 import styles from './page.module.css';
+import QuickLinks from '@/components/QuickLinks/QuickLinks';
 
 export default function Inputs() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [coords, setCoords] = useState({ lat: undefined, long: undefined });
-  const [requestLoading, setRequestLoading] = useState(false);
-  const [coordsLoading, setCoordsLoading] = useState(false);
-  const [fallback, setFallback] = useState(false);
-
-  function getCoordinates() {
-    setCoordsLoading(true);
-    navigator.geolocation.getCurrentPosition(
-      ({ coords }) => {
-        setCoords({ lat: coords.latitude, long: coords.longitude });
-        setCoordsLoading(false);
-      },
-      () => {
-        const dublinCoords = { lat: 53.3498, long: 6.2603 };
-        setCoords(dublinCoords);
-        setCoordsLoading(false);
-        setFallback(true);
-      },
-      { timeout: 5000 }
-    );
-  }
+  const [isLoading, setIsLoading] = useState(false);
 
   async function sendRequest() {
-    setRequestLoading(true);
+    setIsLoading(true);
     try {
       await axios.post(
         `${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api`,
@@ -51,7 +32,7 @@ export default function Inputs() {
     } catch (error) {
       console.log(error);
     } finally {
-      setRequestLoading(false);
+      setIsLoading(false);
     }
   }
 
@@ -96,35 +77,14 @@ export default function Inputs() {
             to send them to the server via Inbound Relay where they'll be
             encrypted on the way.
           </p>
-          <div className={styles.coordinates}>
-            <List
-              items={[
-                { key: 'Latitude', value: coords.lat },
-                { key: 'Longitude', value: coords.long },
-              ]}
-            />
-            {!coords.lat && !coords.long && (
-              <div className={styles.buttonOverlay}>
-                <Button onClick={getCoordinates} isLoading={coordsLoading}>
-                  Get Coordinates
-                </Button>
-              </div>
-            )}
-          </div>
-          {fallback && (
-            <Callout>
-              Since we weren't able to get your coordinates (maybe your Location
-              Services are disabled for the browser), we've populated the
-              coordinates of <em>Dublin, Ireland</em> as an example.
-            </Callout>
-          )}
+          <Coordinates coords={coords} setCoords={setCoords} />
         </Pagination.Item>
         <Pagination.Item
           cta={
             <Button
               onClick={sendRequest}
               disabled={!coords.lat && !coords.long}
-              isLoading={requestLoading}
+              isLoading={isLoading}
             >
               Send Request
             </Button>
@@ -187,6 +147,7 @@ export default function Inputs() {
           <Snippet copiable>
             {`curl -H "Content-type: application/json" -d '{"lat": ${coords.lat}, "long": ${coords.long}}' '${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api'`}
           </Snippet>
+          <QuickLinks exclude='Inbound Relay' />
         </Pagination.Item>
       </Pagination>
     </main>

@@ -40,7 +40,7 @@
   --font-size-medium: 0.9rem;
   --font-size-large: 1rem;
 
-  --font-size-h1: 2rem;
+  --font-size-h1: 3rem;
   --font-size-h2: 1.8rem;
   --font-size-h3: 1.6rem;
   --font-size-h4: 1.4rem;
@@ -48,6 +48,7 @@
   --font-size-h6: 1rem;
 
   --fw-headings: 600;
+  --ls-headings: -0.04em;
 
   --headings-color: var(--grey-100);
   --box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.075);
@@ -82,16 +83,20 @@ body {
   transition: none;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 h1 {
   font-weight: var(--fw-headings);
   font-size: var(--font-size-h1);
   margin-bottom: var(--token-16);
-  color: var(--headings-color);
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background: radial-gradient(
+    45% 100% at 50% 50%,
+    var(--grey-100) 30%,
+    var(--grey-70) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: var(--ls-headings);
 }
 
 h2 {
@@ -99,6 +104,7 @@ h2 {
   font-size: var(--font-size-h2);
   margin-bottom: var(--token-16);
   color: var(--headings-color);
+  letter-spacing: var(--ls-headings);
 }
 
 h3 {
@@ -106,6 +112,7 @@ h3 {
   font-size: var(--font-size-h3);
   margin-bottom: var(--token-16);
   color: var(--headings-color);
+  letter-spacing: var(--ls-headings);
 }
 
 h4 {
@@ -113,6 +120,7 @@ h4 {
   font-size: var(--font-size-h4);
   margin-bottom: var(--token-16);
   color: var(--headings-color);
+  letter-spacing: var(--ls-headings);
 }
 
 h5 {
@@ -120,6 +128,7 @@ h5 {
   font-size: var(--font-size-h5);
   margin-bottom: var(--token-16);
   color: var(--headings-color);
+  letter-spacing: var(--ls-headings);
 }
 
 p {
@@ -162,4 +171,10 @@ pre * {
   padding: var(--token-24) var(--token-24) var(--token-64) var(--token-24);
   margin: 0 auto;
   max-width: var(--max-width);
+}
+
+@media (max-width: 900px) {
+  .rootLayout {
+    padding: var(--token-64) var(--token-24) var(--token-64) var(--token-24);
+  }
 }

@@ -6,7 +6,7 @@ import styles from './Header.module.css';
 export default function Header({ children, links }) {
   return (
     <div className={styles.container}>
-      <h1>{children}</h1>
+      <h2>{children}</h2>
       {links && (
         <div className={styles.links}>
           {links.map(({ title, href }) => {

@@ -5,12 +5,13 @@ import { useState } from 'react';
 
 import Button from '@/components/Button/Button';
 import Code from '@/components/Code/Code';
-import Coordinates from './components/Coordinates/Coordinates';
+import Coordinates from '../../components/Coordinates/Coordinates';
 import { functionUrl, functionCode, logsUrl } from './config';
 import Header from '@/components/Header/Header';
 import Pagination from '@/components/Pagination/Pagination';
 import { sourceUrls } from '../config';
 import styles from './page.module.css';
+import QuickLinks from '@/components/QuickLinks/QuickLinks';
 
 export default function Functions() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -57,7 +58,7 @@ export default function Functions() {
           <p>
             When you send encrypted data to your server, there are probably
             cases where you’ll want decrypt the data to perform validation
-            checks, run calculations, or some other processing. Evervault
+            checks, run calculations, or do some other processing. Evervault
             Functions lets you process data encrypted by Evervault using secure
             serverless functions that are hosted on Evervault’s infrastructure
             and written in Node.js or Python.
@@ -112,7 +113,7 @@ export default function Functions() {
             teamId={process.env.NEXT_PUBLIC_TEAM_ID}
             appId={process.env.NEXT_PUBLIC_APP_ID}
           >
-            <Coordinates coords={coords} setCoords={setCoords} />
+            <Coordinates coords={coords} setCoords={setCoords} encrypt />
           </EvervaultProvider>
         </Pagination.Item>
         <Pagination.Item>
@@ -132,6 +133,7 @@ export default function Functions() {
             </a>
             .
           </p>
+          <QuickLinks exclude='Functions' />
         </Pagination.Item>
       </Pagination>
     </main>

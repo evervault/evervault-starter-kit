@@ -12,9 +12,18 @@
   }
 }
 
-.container h1 {
+.container h2 {
   margin-bottom: 0;
   margin-right: var(--token-12);
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background: radial-gradient(
+    45% 100% at 50% 50%,
+    var(--grey-100) 30%,
+    var(--grey-70) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .links {

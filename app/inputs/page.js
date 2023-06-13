@@ -1,6 +1,5 @@
 'use client';
 import { EvervaultProvider, EvervaultInput } from '@evervault/react';
-import Link from 'next/link';
 import { useState } from 'react';
 
 import Button from '@/components/Button/Button';
@@ -10,20 +9,27 @@ import Input from '@/components/Input/Input';
 import { inputsConfig } from './config';
 import { sourceUrls } from '../config';
 import styles from './page.module.css';
+import QuickLinks from '@/components/QuickLinks/QuickLinks';
 
 export default function Inputs() {
   const [fullName, setFullName] = useState('Claude Shannon');
-  const [email, setEmail] = useState('claude@shannon.com');
   const [inputsData, setInputsData] = useState({});
   const [logStream, setLogStream] = useState([]);
 
   function handleOnChange(data) {
-    setInputsData(data);
+    const log = {
+      type: data.encryptedCard.type,
+      number: data.encryptedCard.number,
+      expMonth: data.encryptedCard.expMonth,
+      expYear: data.encryptedCard.expYear,
+      cvc: data.encryptedCard.cvc,
+    };
+    setInputsData(log);
     setLogStream((prev) => [
       ...prev,
       {
         type: 'onChange',
-        log: data,
+        log,
       },
     ]);
   }
@@ -34,13 +40,16 @@ export default function Inputs() {
       ...prev,
       {
         type: 'Submit Form',
-        log: { fullName, email, ...inputsData },
+        log: {
+          fullName,
+          ...inputsData,
+        },
       },
     ]);
   }
 
   return (
-    <main>
+    <main className={styles.main}>
       <Header
         links={[
           {
@@ -58,11 +67,11 @@ export default function Inputs() {
       <div className={styles.content}>
         <div>
           <p>
-            Evervault Inputs is an embeddable <code>iframe</code> form component
-            that allows you to encrypt cardholder data before it touches your
-            browser. This means that neither your client nor your server touch
-            the cardholder data in plaintext, which significantly reduces your
-            PCI Compliance scope. Inputs can be fully{' '}
+            Inputs is an <code>iframe</code> form that lets you encrypt
+            cardholder data before it touches your browser. This means that
+            neither your client nor your server touch the cardholder data in
+            plaintext, which significantly reduces your PCI Compliance scope.
+            Inputs can be{' '}
             <a
               href='https://docs.evervault.com/products/inputs#themes'
               target='_blank'
@@ -88,27 +97,12 @@ export default function Inputs() {
                   config={inputsConfig}
                 />
               </div>
-              <Input
-                label='Email'
-                placeholder='claude@shannon.com'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
               <Button className={styles.submit}>Submit Form</Button>
             </form>
           </EvervaultProvider>
         </div>
-        <div>
-          <p>
-            Whenever an Inputs field is updated, an <code>onChange</code>{' '}
-            function is called and is passed the encrypted values. All
-            encryption operations happen within the Evervault{' '}
-            <code>iframe</code>. To use the encrypted cardholder data, you can
-            proxy it through <Link href='/outbound-relay'>Outbound Relay</Link>{' '}
-            or process it in a <Link href='/functions'>Function</Link>.
-          </p>
-          <Console logStream={logStream} title='Client Console' />
-        </div>
+        <QuickLinks exclude='Inputs' />
+        <Console logStream={logStream} title='Client Console' />
       </div>
     </main>
   );
