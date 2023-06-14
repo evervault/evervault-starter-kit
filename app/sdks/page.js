@@ -48,7 +48,7 @@ export default function Functions() {
         using <Link href='outbound-relay'>Outbound Relay</Link>.
       </p>
       <Callout>
-        If you need to ensure that plaintext sensitive data never touches your
+        To ensure that plaintext sensitive data never touches your
         infrastructure in plaintext, consider using{' '}
         <Link href='inbound-relay'>Inbound Relay</Link> for encryption.
       </Callout>
