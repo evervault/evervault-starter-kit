@@ -96,10 +96,6 @@
   transition: 0.25s;
 }
 
-.chevron[data-active='true'] {
-  transform: rotate(180deg);
-}
-
 @media (min-width: 600px) {
   .chevron {
     display: none;

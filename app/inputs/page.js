@@ -3,7 +3,7 @@ import { EvervaultProvider, EvervaultInput } from '@evervault/react';
 import { useState } from 'react';
 
 import Button from '@/components/Button/Button';
-import Console from '@/components/Console/Console';
+import Console from './components/Console/Console';
 import Header from '@/components/Header/Header';
 import Input from '@/components/Input/Input';
 import { inputsConfig } from './config';

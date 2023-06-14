@@ -30,7 +30,6 @@ export default function Console({ logStream, title }) {
           className={styles.chevron}
           width={16}
           onClick={toggleMobileExpand}
-          data-active={height === window.innerHeight / 2}
         />
       </div>
       <div className={styles.logStream} ref={logStreamRef}>
