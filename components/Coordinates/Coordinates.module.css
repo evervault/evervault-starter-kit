@@ -95,4 +95,5 @@
   text-decoration-color: var(--grey-30);
   transition: 0.25s;
   cursor: pointer;
+  font-size: var(--font-size-regular);
 }
