@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 export default function useResizeConsole() {
   const [isResizing, setIsResizing] = useState(false);
-  const [height, setHeight] = useState(null);
+  const [height, setHeight] = useState(150);
   const [mobileExpand, setMobileExpand] = useState(false);
 
   function startResizing() {
@@ -11,7 +11,7 @@ export default function useResizeConsole() {
   }
 
   function resize(event) {
-    if (!isResizing || typeof window === 'undefined') return;
+    if (!isResizing) return;
     const resizeHandleOffset = 8;
     const newHeight = Math.min(
       Math.max(window.innerHeight - event.clientY + resizeHandleOffset, 40),
@@ -25,25 +25,18 @@ export default function useResizeConsole() {
   }
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setHeight(window.innerHeight / 5);
-      document.addEventListener('mousemove', resize);
-      document.addEventListener('mouseup', stopResizing);
-    }
+    document.addEventListener('mousemove', resize);
+    document.addEventListener('mouseup', stopResizing);
 
     return () => {
-      if (typeof window !== 'undefined') {
-        document.removeEventListener('mousemove', resize);
-        document.removeEventListener('mouseup', stopResizing);
-      }
+      document.removeEventListener('mousemove', resize);
+      document.removeEventListener('mouseup', stopResizing);
     };
   }, [isResizing]);
 
   function toggleMobileExpand() {
     setMobileExpand(!mobileExpand);
-    if (typeof window !== 'undefined') {
-      setHeight(mobileExpand ? window.innerHeight / 5 : window.innerHeight / 2);
-    }
+    setHeight(mobileExpand ? 500 : 150);
   }
 
   return { startResizing, height, isResizing, toggleMobileExpand };
