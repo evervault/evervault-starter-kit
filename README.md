@@ -1,34 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+![Evervault and Next.js Starter Kit](public/evervault_starter_kit.png)
 
-First, run the development server:
+# Evervault + Next.js Starter Kit
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Add industry-standard encryption to any sensitive data field in your Next.js app with this starter kit.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Instantly use the Evervault client-side or server-side SDKs to encrypt any plaintext form or JSON field.
+- Set a proxy in front of your server that will intercept data fields of your choosing and encrypt them en route.
+- Pass encrypted data to any third-party API, only decrypting it once it hits the intended host.
+- Process data encrypted by Evervault using secure serverless functions hosted on Evervault’s infrastructure written in Node.js or Python.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Get started
 
-## Learn More
+Deploy the integration to set up your Evervault Account. This will allow you to use the starter kit, and access your [Evervault Dashboard](https://app.evervault.com/).
 
-To learn more about Next.js, take a look at the followinveg resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Try out:
+- Encrypting location data coming into your app from your browser
+- Sending data securely Open-Meteo’s Weather API (or, replace with an API of your choice)
+- Calculating the distance between your location and New York by only decrypting the data in a secure, untouchable function
+- Customize any of the data sources and functionality using your own data and APIs
+- Encrypt cardholder data in real-time: The card details will never be in plaintext
