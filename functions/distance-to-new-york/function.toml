@@ -1,0 +1,4 @@
+[function]
+name = "distance-to-new-york"
+language = "node@18"
+handler = "index.handler"

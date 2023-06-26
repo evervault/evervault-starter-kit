@@ -1,0 +1,15 @@
+{
+  "name": "distance-to-new-york",
+  "version": "1.0.0",
+  "description": "An Evervault function to calculate the distance from a given location to New York City",
+  "main": "index.js",
+  "keywords": [
+    "privacy",
+    "function",
+    "security",
+    "encryption",
+    "evervault"
+  ],
+  "author": "Evervault Inc.",
+  "license": "MIT"
+}
