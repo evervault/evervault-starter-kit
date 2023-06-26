@@ -27,6 +27,12 @@ export const metadata = {
     locale: 'en_US',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Evervault Starter Kit',
+    description: 'Get up to speed with Evervault',
+    images: ['/og-image.jpg'],
+  },
 };
 
 export default function RootLayout({ children }) {
