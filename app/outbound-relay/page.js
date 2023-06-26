@@ -12,7 +12,6 @@ import Pagination from '@/components/Pagination/Pagination';
 import { sourceUrls } from '../config';
 import Snippet from '@/components/Snippet/Snippet';
 import styles from './page.module.css';
-import QuickLinks from '@/components/QuickLinks/QuickLinks';
 
 export default function OutboundRelay() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -169,7 +168,6 @@ export default function OutboundRelay() {
             </a>
             .
           </p>
-          <QuickLinks exclude='Outbound Relay' />
         </Pagination.Item>
       </Pagination>
     </main>

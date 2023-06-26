@@ -11,7 +11,6 @@ import Header from '@/components/Header/Header';
 import Pagination from '@/components/Pagination/Pagination';
 import { sourceUrls } from '../config';
 import styles from './page.module.css';
-import QuickLinks from '@/components/QuickLinks/QuickLinks';
 
 export default function Functions() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -133,7 +132,6 @@ export default function Functions() {
             </a>
             .
           </p>
-          <QuickLinks exclude='Functions' />
         </Pagination.Item>
       </Pagination>
     </main>

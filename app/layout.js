@@ -11,7 +11,22 @@ const robotoMono = Roboto_Mono({
 
 export const metadata = {
   title: 'Evervault Starter Kit',
-  description: 'Get up to speed with Evervault.',
+  description: 'Get up to speed with Evervault',
+  openGraph: {
+    title: 'Evervault Starter Kit',
+    description: 'Get up to speed with Evervault',
+    url: 'https://evervault-starter-kit.vercel.app',
+    siteName: 'Evervault Starter Kit',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({ children }) {

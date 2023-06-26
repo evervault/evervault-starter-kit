@@ -9,7 +9,6 @@ import Input from '@/components/Input/Input';
 import { inputsConfig } from './config';
 import { sourceUrls } from '../config';
 import styles from './page.module.css';
-import QuickLinks from '@/components/QuickLinks/QuickLinks';
 
 export default function Inputs() {
   const [fullName, setFullName] = useState('Claude Shannon');
@@ -101,7 +100,6 @@ export default function Inputs() {
             </form>
           </EvervaultProvider>
         </div>
-        <QuickLinks exclude='Inputs' />
         <Console logStream={logStream} title='Client Console' />
       </div>
     </main>

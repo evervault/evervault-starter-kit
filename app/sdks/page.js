@@ -7,7 +7,6 @@ import { sourceUrls } from '../config';
 import styles from './page.module.css';
 import Link from 'next/link';
 import Callout from '@/components/Callout/Callout';
-import QuickLinks from '@/components/QuickLinks/QuickLinks';
 
 export default function Functions() {
   return (
@@ -52,7 +51,6 @@ export default function Functions() {
         infrastructure in plaintext, consider using{' '}
         <Link href='inbound-relay'>Inbound Relay</Link> for encryption.
       </Callout>
-      <QuickLinks exclude='SDKs'></QuickLinks>
     </main>
   );
 }

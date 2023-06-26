@@ -11,7 +11,6 @@ import { relayDashbordUrl, vercelLogsUrl } from './config';
 import Snippet from '@/components/Snippet/Snippet';
 import { sourceUrls } from '../config';
 import styles from './page.module.css';
-import QuickLinks from '@/components/QuickLinks/QuickLinks';
 
 export default function Inputs() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -147,7 +146,6 @@ export default function Inputs() {
           <Snippet copiable>
             {`curl -H "Content-type: application/json" -d '{"lat": ${coords.lat}, "long": ${coords.long}}' '${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api'`}
           </Snippet>
-          <QuickLinks exclude='Inbound Relay' />
         </Pagination.Item>
       </Pagination>
     </main>
