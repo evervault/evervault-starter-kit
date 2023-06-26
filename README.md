@@ -14,7 +14,7 @@ This repository is a Next.js template that can be deployed with Vercel. During t
 | Product | Description | Sandbox |
 | --- | --- | --- |
 | Evervault SDK | Language-specific tools for performing encryption operations and workflows from your code.  | Use the Evervault React SDK to encrypt some sensitive data in the browser.  |
-| Inbound Relay | Automatically intercepts and encrypts selected sensitive fields before they touch your server. | The template includes an Inbound Relay to automatically encrypt some sensitive data between the browser and a Next.js Route Handler.  |
+| Inbound Relay | An encryption proxy which automatically intercepts and encrypts selected sensitive fields before they touch your server. | Automatically encrypt some sensitive data between the browser and a Next.js Route Handler.  |
 | Outbound Relay | A decryption proxy that allows you to share Evervault-encrypted data from your server to third-party APIs. | Send some encrypted data from a Next.js Route Handler to a third-party weather API. |
 | Functions | Secure serverless functions that allow you to run workflows, logic and processing on encrypted data. | Run some logic on encrypted data within an Evervault Function to determine your distance to New York. |
 | Inputs | Embeddable forms which minimise your compliance burden by allowing you to collect and encrypt cardholder data. | Collect and encrypt sample cardholder data using the Evervault Inputs iframe.  |
