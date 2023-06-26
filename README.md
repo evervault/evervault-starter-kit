@@ -1,34 +1,22 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+![image](https://github.com/evervault/evervault-starter-kit/assets/43811706/b48b10bf-a1c6-41f2-aecf-b94693002ac2)
 
-First, run the development server:
+# Evervault + Next.js Starter Kit
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[Evervault](https://evervault.com/) is an encryption and data security platform for developers. Using Evervault allows you to keep sensitive data encrypted at all times, without compromising your ability to use that data. 
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+This repository is a Next.js template that can be deployed with Vercel. During the deployment process, you’ll be asked to install Vercel’s Evervault integration, which will create the following Evervault products and inject them into the project as environment variables. Each page of the deployed app explores a different Evervault product to help you get up to speed with the platform.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## What’s included
 
-## Learn More
+| Product | Description | Sandbox |
+| --- | --- | --- |
+| Evervault SDK | Language-specific tools for performing encryption operations and workflows from your code.  | We’ll use the Evervault React SDK to encrypt some sensitive data in the browser.  |
+| Inbound Relay | An encryption proxy which automatically intercepts and encrypts selected sensitive fields before they touch your server. | The template includes an Inbound Relay to automatically encrypt some sensitive data between the browser and a Next.js Route Handler.  |
+| Outbound Relay | A decryption proxy that allows you to share Evervault-encrypted data from your server to third-party APIs. | We’ll send some encrypted data from a Next.js Route Handler to a third-party weather API. |
+| Functions | Secure serverless functions that allow you to run workflows, logic and processing on encrypted data. | We’ll run some logic on encrypted data within an Evervault Function to determine your distance to New York. |
+| Inputs | Embeddable forms which minimise your compliance burden by allowing you to collect and encrypt cardholder data. | We’ll collect and encrypt sample cardholder data using the Evervault Inputs iframe.  |
 
-To learn more about Next.js, take a look at the followinveg resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To get started, [deploy the Evervault template on Vercel](https://vercel.com/templates).
