@@ -1,16 +1,16 @@
-'use client';
-import axios from 'axios';
-import { useState } from 'react';
+"use client";
+import axios from "axios";
+import { useState } from "react";
 
-import Button from '@/components/Button/Button';
-import Code from '@/components/Code/Code';
-import Coordinates from '@/components/Coordinates/Coordinates';
-import Header from '@/components/Header/Header';
-import Pagination from '@/components/Pagination/Pagination';
-import { relayDashbordUrl, vercelLogsUrl } from './config';
-import Snippet from '@/components/Snippet/Snippet';
-import { sourceUrls } from '../config';
-import styles from './page.module.css';
+import Button from "@/components/Button/Button";
+import Code from "@/components/Code/Code";
+import Coordinates from "@/components/Coordinates/Coordinates";
+import Header from "@/components/Header/Header";
+import Pagination from "@/components/Pagination/Pagination";
+import { relayDashbordUrl, vercelLogsUrl } from "./config";
+import Snippet from "@/components/Snippet/Snippet";
+import { sourceUrls } from "../config";
+import styles from "./page.module.css";
 
 export default function Inputs() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -21,7 +21,7 @@ export default function Inputs() {
     setIsLoading(true);
     try {
       await axios.post(
-        `${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api`,
+        `https://${process.env.NEXT_PUBLIC_RELAY_DOMAIN}.relay.evervault.io/inbound-relay/api`,
         {
           lat: coords.lat,
           long: coords.long,
@@ -40,11 +40,11 @@ export default function Inputs() {
       <Header
         links={[
           {
-            title: 'Docs',
-            href: 'https://docs.evervault.com/products/inbound-relay',
+            title: "Docs",
+            href: "https://docs.evervault.com/products/inbound-relay",
           },
           {
-            title: 'View Source',
+            title: "View Source",
             href: sourceUrls.inboundRelay,
           },
         ]}
@@ -93,28 +93,28 @@ export default function Inputs() {
             Great! Now that we've collected some sensitive data, we're going to
             send it to the server via Inbound Relay. This template includes a
             server-side API endpoint called <code>/inbound-relay/api</code> (a
-            Next.js{' '}
+            Next.js{" "}
             <a
-              href='https://nextjs.org/docs/app/building-your-application/routing/router-handlers'
-              target='_blank'
+              href="https://nextjs.org/docs/app/building-your-application/routing/router-handlers"
+              target="_blank"
             >
               Route Handler
             </a>
             ). When we send the following request to the Inbound Relay we
-            created during the integration, it'll be forwarded to the{' '}
+            created during the integration, it'll be forwarded to the{" "}
             <code>/inbound-relay/api</code> endpoint.
           </p>
           <Code
             code={JSON.stringify(coords, null, 2)}
             request={{
-              method: 'POST',
+              method: "POST",
               url: `${process.env.NEXT_PUBLIC_RELAY_DOMAIN}/inbound-relay/api`,
             }}
           />
           <p>
-            Since <code>lat</code> and <code>long</code> are configured as{' '}
-            <em>fields to encrypt</em>{' '}
-            <a href={`${relayDashbordUrl}/encrypted-fields`} target='_blank'>
+            Since <code>lat</code> and <code>long</code> are configured as{" "}
+            <em>fields to encrypt</em>{" "}
+            <a href={`${relayDashbordUrl}/encrypted-fields`} target="_blank">
               in the Evervault Dashboard
             </a>
             , those fields will be encrypted by Inbound Relay before being
@@ -126,18 +126,18 @@ export default function Inputs() {
             The request was successfully sent to the server via Inbound Relay!
           </p>
           <p>
-            If you{' '}
-            <a href={vercelLogsUrl} target='_blank'>
+            If you{" "}
+            <a href={vercelLogsUrl} target="_blank">
               check your Vercel Logs
             </a>
-            , you'll notice that the fields <code>lat</code> and{' '}
+            , you'll notice that the fields <code>lat</code> and{" "}
             <code>long</code> are encrypted.
           </p>
           <p>
-            Try changing the fields to encrypt{' '}
-            <a href={`${relayDashbordUrl}/encrypted-fields`} target='_blank'>
+            Try changing the fields to encrypt{" "}
+            <a href={`${relayDashbordUrl}/encrypted-fields`} target="_blank">
               in the Evervault Dashboard
-            </a>{' '}
+            </a>{" "}
             and resending the request using the <code>curl</code> snippet below.
             If you remove <code>lat</code> and <code>long</code> from the list
             of fields to encrypt, you'll see that they're no longer encrypted in
