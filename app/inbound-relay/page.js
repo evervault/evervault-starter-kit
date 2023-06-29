@@ -21,7 +21,7 @@ export default function Inputs() {
     setIsLoading(true);
     try {
       await axios.post(
-        `https://${process.env.NEXT_PUBLIC_RELAY_DOMAIN}.relay.evervault.io/inbound-relay/api`,
+        `https://${process.env.NEXT_PUBLIC_RELAY_DOMAIN}.relay.evervault.com/inbound-relay/api`,
         {
           lat: coords.lat,
           long: coords.long,
