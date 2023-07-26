@@ -30,10 +30,10 @@ export default function Functions() {
         <a href='https://docs.evervault.com/sdks/platforms' target='_blank'>
           client-side or server-side SDKs
         </a>
-        . Each SDK includes an <code>encrypt()</code> function, which accepts a{' '}
-        <code>String</code> or an <code>Object</code>. You can also pass a{' '}
-        <code>Buffer</code> for file encryption. Try it out by encrypting the
-        name in the input field below!{' '}
+        . Each SDK includes an <code>encrypt()</code> and <code>decrypt()</code>{' '}
+        function, which accepts a <code>String</code> or an <code>Object</code>.
+        You can also pass a <code>Buffer</code> for file encryption. Try it out
+        by encrypting the name in the input field below!{' '}
       </p>
       <EvervaultProvider
         teamId={process.env.NEXT_PUBLIC_TEAM_ID}
